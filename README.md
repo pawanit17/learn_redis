@@ -15,3 +15,15 @@
 - Leaderboards for realtime gaming applications
 - Geospatial searches
 
+# Datatypes
+The value in Redis can be one from the below list:
+- Strings
+- Lists
+- Sets
+- Sorted Sets
+- Hashes
+
+# Working with Redis
+
+Spin a REDIS container: ```docker run --name redis_container -d redis```
+Run commands on REDIS cli: ```docker exec -it redis_container sh```
