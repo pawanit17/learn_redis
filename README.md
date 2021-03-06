@@ -48,3 +48,98 @@ OK
 (integer) 11
 127.0.0.1:6379> get student
 "pavan kumar"
+
+127.0.0.1:6379> mget student docker
+1) "pavan kumar"
+2) "greater"
+
+## List
+Lists of strings sorted by insertion order.
+
+127.0.0.1:6379> lpush tutorials tut1 tut2 tut3
+(integer) 3
+127.0.0.1:6379> lrange tutorials 0 2
+1) "tut3"
+2) "tut2"
+3) "tut1"
+127.0.0.1:6379> lrange tutorials 0 29
+1) "tut3"
+2) "tut2"
+3) "tut1"
+127.0.0.1:6379> rpush tutorials tut4
+(integer) 4
+127.0.0.1:6379> lrange tutorials
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> lrange tutorials 0 10
+1) "tut3"
+2) "tut2"
+3) "tut1"
+4) "tut4"
+127.0.0.1:6379> lpop tutorials
+"tut3"
+127.0.0.1:6379> rpop tutorials
+"tut4"
+127.0.0.1:6379>
+
+
+## Sets
+No repetition.
+
+127.0.0.1:6379> sadd emails email1 email2 email3
+(integer) 3
+127.0.0.1:6379> smembers emails
+1) "email1"
+2) "email3"
+3) "email2"
+127.0.0.1:6379> scard emails
+(integer) 3
+127.0.0.1:6379> sadd newemails email3 email4 email5
+(integer) 3
+127.0.0.1:6379> sdiff emails newemails
+1) "email1"
+2) "email2"
+127.0.0.1:6379> sdiff newemails emails
+1) "email4"
+2) "email5"
+127.0.0.1:6379> sunion emails newemails
+1) "email5"
+2) "email2"
+3) "email3"
+4) "email1"
+5) "email4"
+127.0.0.1:6379> sinter emails newemails
+1) "email3"
+127.0.0.1:6379> spop emails
+"email2"
+127.0.0.1:6379> srem newemails email5 email4
+(integer) 2
+127.0.0.1:6379>
+
+
+## Sorted Sets
+127.0.0.1:6379> zadd names 1- bassem 20 ali 30 chuck
+(error) ERR value is not a valid float
+127.0.0.1:6379> zadd names 10 bassem 20 ali 30 chuck
+(integer) 3
+127.0.0.1:6379> zcard names
+(integer) 3
+127.0.0.1:6379> zrange names
+(error) ERR wrong number of arguments for 'zrange' command
+127.0.0.1:6379> zrange names 0 10
+1) "bassem"
+2) "ali"
+3) "chuck"
+127.0.0.1:6379> rank names bassem
+(error) ERR unknown command `rank`, with args beginning with: `names`, `bassem`,
+127.0.0.1:6379> zrank names bassem
+(integer) 0
+127.0.0.1:6379> zrank names ali
+(integer) 1
+127.0.0.1:6379> zscore names bassem
+"10"
+
+## Hashes
+
+
+
+
