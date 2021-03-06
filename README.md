@@ -141,5 +141,20 @@ No repetition.
 ## Hashes
 
 
+# Redist Persistency Options
+- No persistence
+- Redis DataBase File
+  - Periodic snapshot.
+  - Good option for Production.
+  - Enabled by default.
+  - Good for disaster recovery.
+- Append Only File
+  - Log each WRITE operation so that the dataset can be recovered.
+  - Prevents data corruption.
+  - Slow because of the number of WRITEs involved.
+  - Has to be explicitly enabled in the conf file.
+- Hybrid Approach
+  - Recommended approach
+
 
 
