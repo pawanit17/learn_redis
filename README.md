@@ -177,8 +177,43 @@ Ex: ```create-cluster start```
 # Cluster vs Sentinel
 
 Sentinel - Smaller implementations with the need for high availability.
-
 Cluster - Scalable implementations with the need for high availability. This is also faster as there are no sentinels and offers replication.
+
+# Transactions
+Used for runnning a group of commands at the same time.
+Ex:
+```
+multi
+set num 10
+incrby num 10
+exec
+
+multi
+set num 10
+incrby num 10
+discard
+get num
+```
+
+# Authentication
+We can set password using the below command to secure Redis:
+```config set requirepass jordan```
+With this, to access Redis, we need to use auth command.
+```set mykey value1``` --> NOAUTH Authentication required.
+```auth jordan```
+```set mykey value1``` --> OK
+
+# Jedis & Spring Data Redis
+Jedis is a Java client library for Redis.
+This is not Thread safe.
+Jedis Pool is Thread safe and is configurable with imprved performance.
+
+RedisTemplate is the crucial class in Spring Data Redis.
+Data in Redis is stored in the form of Bytes. To convert them to String, Json, objects, you need to use Serializers.
+Ex: JacksonJsonRedisSerializer, StringRedisSerializer etc.
+
+
+
 
 
 
