@@ -162,5 +162,25 @@ Redis Clients ask Sentinels what the address of the current Redis master is.
 If the master is considered down by the quorum number of Sentinels, then the Sentinels promote one of the Redis slaves as the new master.
 ![image](https://user-images.githubusercontent.com/42272776/110230625-41934a00-7f38-11eb-8c1a-baed0aa3d4d9.png)
 
+Redis config files are used to determine settings like whether the service is Master, which port to run at, what its slaves are etc.
+
+# Cluster
+Similar to Sentinel, it provides high availability.
+But because the Redis is sharded, more data can be fit in.
+Unlike Sentinels, there is no dedicated monitoring services.
+![image](https://user-images.githubusercontent.com/42272776/110230923-596bcd80-7f3a-11eb-8fbe-24994642fcdd.png)
+
+In the above example, the master cluster is formed of 3 server and the slave cluster too has 3 nodes. The clients connect to it by the default 6386 port and the masters and slaves are all connected via another port 16386. This connection allows configuration files exchange, availability updates etc.
+Sharding is implicitly done in this mode using a CRC hash function to distribute the data across multiple servers.
+Ex: ```create-cluster start```
+
+# Cluster vs Sentinel
+
+Sentinel - Smaller implementations with the need for high availability.
+
+Cluster - Scalable implementations with the need for high availability. This is also faster as there are no sentinels and offers replication.
+
+
+
 
 
