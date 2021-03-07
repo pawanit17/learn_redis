@@ -156,5 +156,11 @@ No repetition.
 - Hybrid Approach
   - Recommended approach
 
+# Sentinel
+This is used for increasing the availability of Redis to the Redis clients.
+Redis Clients ask Sentinels what the address of the current Redis master is.
+If the master is considered down by the quorum number of Sentinels, then the Sentinels promote one of the Redis slaves as the new master.
+![image](https://user-images.githubusercontent.com/42272776/110230625-41934a00-7f38-11eb-8c1a-baed0aa3d4d9.png)
+
 
 
