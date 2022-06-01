@@ -213,8 +213,8 @@ Data in Redis is stored in the form of Bytes. To convert them to String, Json, o
 Ex: JacksonJsonRedisSerializer, StringRedisSerializer etc.
 
 # CRUD Redis with SpringBoot
-
-
+- 
+- https://www.youtube.com/c/JavaTechie/search?query=redis
 
 
 
