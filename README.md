@@ -25,8 +25,10 @@ The value in Redis can be one from the below list:
 
 # Working with Redis
 
-Spin a REDIS container: ```docker run --name redis_container -d redis```
-Run commands on REDIS cli: ```docker exec -it redis_container sh```
+- Spin a REDIS container
+```docker run --name redis_container -d redis```
+- Run commands on REDIS cli
+```docker exec -it redis_container sh```
 
 # Commands
 - set student pavan
