@@ -143,7 +143,7 @@ No repetition.
 ## Hashes
 
 
-# Redist Persistency Options
+# Redis Persistency Options
 - No persistence
 - Redis DataBase File
   - Periodic snapshot.
